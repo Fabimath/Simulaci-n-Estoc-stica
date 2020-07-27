@@ -16,4 +16,4 @@
 * [Tarea 2](Tarea_2_MAT468/Simulación_Estocástica_Tarea_2.pdf)
 
 
-Volver al inicio
+[Volver al inicio](https://fabimath.github.io/inicio/)
