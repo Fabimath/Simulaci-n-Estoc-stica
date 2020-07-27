@@ -1,8 +1,14 @@
 # Simulación Estocástica
-## Repositorio con material del curso MAT468
+## Clases
+* [Clase 1](Clases/MAT468_slides-01.pdf)
+* [Clase 2](Clases/MAT468_slides-02.pdf)
+* [Clase 3](Clases/MAT468_slides-03.pdf)
+* [Clase 4](Clases/MAT468_slides-04.pdf)
+* [Clase 5](Clases/MAT468_slides-05.pdf)
+* [Clase 6](Clases/MAT468_slides-06.pdf)
+* [Clase 7](Clases/MAT468_slides-07.pdf)
+* [Clase 8](Clases/MAT468_slides-08.pdf)
+* [Clase 9](Clases/MAT468_slides-09.pdf)
+* [Clase 10](Clases/MAT468_slides-10.pdf)
+* [Clase 11](Clases/MAT468_slides-11.pdf)
 
-* __Fabián Ramírez__ : [Linkedin](https://www.linkedin.com/in/fabi%C3%A1n-ram%C3%ADrez-d%C3%ADaz-955761189/)
-
-* __Repositorio Curso__: [GitHub](https://github.com/Fabimath/Simulaci-n-Estoc-stica)
-
-Repositorio personal con tareas, códigos y avances del curso MAT468 dictado por el profesor Felipe Osorio.
