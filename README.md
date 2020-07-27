@@ -14,5 +14,6 @@
 ## Tareas
 * [Tarea 1](Tarea_1_MAT468/Simulación_Estocástica_Tarea_1.pdf)
 * [Tarea 2](Tarea_2_MAT468/Simulación_Estocástica_Tarea_2.pdf)
- - [Complemento Tarea 2](Tarea_2_M)
- - [Vídeo Tarea 2]()
+
+
+Volver al inicio
