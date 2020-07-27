@@ -1,8 +1,6 @@
 # Simulación Estocástica
 ## Clases
-* [Clase 1](Clases/MAT468_slides-01.pdf)
-* [Clase 2](Clases/MAT468_slides-02.pdf)
-* [Clase 3](Clases/MAT468_slides-03.pdf)
+* [Clase 1](Clases/MAT468_slides-01.pdf) - [Clase 2](Clases/MAT468_slides-02.pdf) -[Clase 3](Clases/MAT468_slides-03.pdf)
 * [Clase 4](Clases/MAT468_slides-04.pdf)
 * [Clase 5](Clases/MAT468_slides-05.pdf)
 * [Clase 6](Clases/MAT468_slides-06.pdf)
