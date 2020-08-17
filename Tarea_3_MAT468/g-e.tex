@@ -1,0 +1,71 @@
+\vspace*{2mm}
+ \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{h.x} \PY{o}{=} \PY{n+nf}{function}\PY{p}{(}\PY{n}{x}\PY{p}{)}  \PY{p}{(}\PY{n}{x}\PY{n}{[1}\PY{n}{]}\PY{o}{*}\PY{n+nf}{sin}\PY{p}{(}\PY{l+m}{20}\PY{o}{*}\PY{n}{x}\PY{n}{[2}\PY{n}{]}\PY{p}{)} \PY{o}{+} \PY{n}{x}\PY{n}{[2}\PY{n}{]}\PY{o}{*}\PY{n+nf}{sin}\PY{p}{(}\PY{l+m}{20}\PY{o}{*}\PY{n}{x}\PY{n}{[1}\PY{n}{]}\PY{p}{)}\PY{p}{)}\PY{n}{\PYZca{}2}\PY{o}{*}\PY{n+nf}{cosh}\PY{p}{(}\PY{n+nf}{sin}\PY{p}{(}\PY{l+m}{10}\PY{o}{*}\PY{n}{x}\PY{n}{[1}\PY{n}{]}\PY{p}{)}\PY{o}{*}\PY{n}{x}\PY{n}{[1}\PY{n}{]}\PY{p}{)}\PY{o}{+} \PY{p}{(}\PY{n}{x}\PY{n}{[1}\PY{n}{]}\PY{o}{*}\PY{n+nf}{cos}\PY{p}{(}\PY{l+m}{10}\PY{o}{*}\PY{n}{x}\PY{n}{[2}\PY{n}{]}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{x}\PY{n}{[2}\PY{n}{]}\PY{o}{*}\PY{n+nf}{sin}\PY{p}{(}\PY{l+m}{10}\PY{o}{*}\PY{n}{x}\PY{n}{[1}\PY{n}{]}\PY{p}{)}\PY{p}{)}\PY{n}{\PYZca{}2}\PY{o}{*}\PY{n+nf}{cosh}\PY{p}{(}\PY{n+nf}{cos}\PY{p}{(}\PY{l+m}{20}\PY{o}{*}\PY{n}{x}\PY{n}{[2}\PY{n}{]}\PY{p}{)}\PY{o}{*}\PY{n}{x}\PY{n}{[2}\PY{n}{]}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Tomamos nuestra estimación inicial}
+\PY{n}{theta\PYZus{}0} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+m}{0.65}\PY{p}{,} \PY{l+m}{0.8}\PY{p}{)}
+\PY{c+c1}{\PYZsh{} Número de iteraciones}
+\PY{n}{iter} \PY{o}{=} \PY{l+m}{58}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Funciones gamma y lambda}
+\PY{n}{gamma} \PY{o}{=} \PY{n+nf}{function}\PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n+nf}{return}\PY{p}{(}\PY{l+m}{1}\PY{o}{/}\PY{p}{(}\PY{l+m}{10}\PY{o}{*}\PY{n+nf}{log}\PY{p}{(}\PY{l+m}{1}\PY{o}{+}\PY{n}{k}\PY{p}{)}\PY{p}{)}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\PY{n}{lambda} \PY{o}{=} \PY{n+nf}{function}\PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n+nf}{return}\PY{p}{(}\PY{l+m}{1}\PY{o}{/}\PY{n}{k}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} Creamos el vector z}
+\PY{n}{z}\PY{o}{=}\PY{n+nf}{rsphere}\PY{p}{(}\PY{n}{iter}\PY{p}{,}\PY{l+m}{2}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} La función diferencia}
+\PY{n}{dif} \PY{o}{=} \PY{n+nf}{function}\PY{p}{(}\PY{n}{h.x}\PY{p}{,}\PY{n}{theta}\PY{p}{,}\PY{n}{lambda}\PY{p}{,}\PY{n}{z}\PY{p}{,}\PY{n}{k}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{a}\PY{o}{=}\PY{p}{(}\PY{n+nf}{h.x}\PY{p}{(}\PY{n}{theta}\PY{n}{[k}\PY{p}{,}\PY{n}{]} \PY{o}{+} \PY{n+nf}{lambda}\PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{o}{*}\PY{n}{z}\PY{n}{[k}\PY{p}{,}\PY{n}{]}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n+nf}{h.x}\PY{p}{(}\PY{n}{theta}\PY{n}{[k}\PY{p}{,}\PY{n}{]}\PY{o}{\PYZhy{}}\PY{n+nf}{lambda}\PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{o}{*}\PY{n}{z}\PY{n}{[k}\PY{p}{,}\PY{n}{]}\PY{p}{)}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{l+m}{2}\PY{o}{*}\PY{n+nf}{lambda}\PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{n}{z}\PY{n}{[k}\PY{p}{,}\PY{n}{]}
+    \PY{n+nf}{return}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{\PYZsh{} creamos la matriz de thetas}
+\PY{n}{thetas} \PY{o}{=} \PY{n+nf}{matrix}\PY{p}{(}\PY{k+kc}{NA}\PY{p}{,} \PY{n}{ncol}\PY{o}{=}\PY{l+m}{2}\PY{p}{,} \PY{n}{nrow}\PY{o}{=}\PY{n}{iter}\PY{l+m}{+1}\PY{p}{)}      
+\PY{n+nf}{colnames}\PY{p}{(}\PY{n}{thetas}\PY{p}{)} \PY{o}{=} \PY{n+nf}{c}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{x\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{y\PYZsq{}}\PY{p}{)}
+\PY{n}{thetas}\PY{n}{[1}\PY{p}{,} \PY{n}{]} \PY{o}{=} \PY{n}{theta\PYZus{}0}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nf}{for }\PY{p}{(}\PY{n}{k} \PY{n}{in} \PY{l+m}{1}\PY{o}{:}\PY{n}{iter}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{thetas}\PY{n}{[k}\PY{l+m}{+1}\PY{p}{,}\PY{n}{]}\PY{o}{=}\PY{n}{thetas}\PY{n}{[k}\PY{p}{,}\PY{n}{]}\PY{o}{\PYZhy{}}\PY{n+nf}{gamma}\PY{p}{(}\PY{n}{k}\PY{p}{)}\PY{o}{*}\PY{n+nf}{dif}\PY{p}{(}\PY{n}{h.x}\PY{p}{,}\PY{n}{thetas}\PY{p}{,}\PY{n}{lambda}\PY{p}{,}\PY{n}{z}\PY{p}{,}\PY{n}{k}\PY{p}{)}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{h} \PY{o}{=} \PY{n+nf}{function}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}  \PY{p}{(}\PY{n}{x}\PY{o}{*}\PY{n+nf}{sin}\PY{p}{(}\PY{l+m}{20}\PY{o}{*}\PY{n}{y}\PY{p}{)} \PY{o}{+} \PY{n}{y}\PY{o}{*}\PY{n+nf}{sin}\PY{p}{(}\PY{l+m}{20}\PY{o}{*}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{n}{\PYZca{}2}\PY{o}{*}\PY{n+nf}{cosh}\PY{p}{(}\PY{n+nf}{sin}\PY{p}{(}\PY{l+m}{10}\PY{o}{*}\PY{n}{x}\PY{p}{)}\PY{o}{*}\PY{n}{x}\PY{p}{)}\PY{o}{+} \PY{p}{(}\PY{n}{x}\PY{o}{*}\PY{n+nf}{cos}\PY{p}{(}\PY{l+m}{10}\PY{o}{*}\PY{n}{y}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n}{y}\PY{o}{*}\PY{n+nf}{sin}\PY{p}{(}\PY{l+m}{10}\PY{o}{*}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{n}{\PYZca{}2}\PY{o}{*}\PY{n+nf}{cosh}\PY{p}{(}\PY{n+nf}{cos}\PY{p}{(}\PY{l+m}{20}\PY{o}{*}\PY{n}{y}\PY{p}{)}\PY{o}{*}\PY{n}{y}\PY{p}{)}
+\PY{n}{a} \PY{o}{=} \PY{l+m}{1}
+\PY{n}{x} \PY{o}{=} \PY{n+nf}{seq}\PY{p}{(}\PY{n}{from}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{n}{a}\PY{p}{,} \PY{n}{to}\PY{o}{=}\PY{n}{a}\PY{p}{,} \PY{n}{length.out}\PY{o}{=}\PY{l+m}{1000}\PY{p}{)}
+\PY{n}{y} \PY{o}{=} \PY{n+nf}{seq}\PY{p}{(}\PY{n}{from}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{n}{a}\PY{p}{,} \PY{n}{to}\PY{o}{=}\PY{n}{a}\PY{p}{,} \PY{n}{length.out}\PY{o}{=}\PY{l+m}{1000}\PY{p}{)}
+\PY{n}{z} \PY{o}{=} \PY{n+nf}{outer}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{h}\PY{p}{)}
+\PY{n+nf}{image}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{o}{=}\PY{n}{z}\PY{p}{)}
+\PY{n+nf}{contour}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{n}{y}\PY{p}{,} \PY{n}{z}\PY{o}{=}\PY{n}{z}\PY{p}{,} \PY{n}{add}\PY{o}{=}\PY{k+kc}{TRUE}\PY{p}{,} \PY{n}{nlevels}\PY{o}{=}\PY{l+m}{40}\PY{p}{,} \PY{n}{col}\PY{o}{=}\PY{n+nf}{gray}\PY{p}{(}\PY{l+m}{0.5}\PY{p}{)}\PY{p}{)}
+\PY{n+nf}{points}\PY{p}{(}\PY{n}{theta\PYZus{}0}\PY{n}{[1}\PY{n}{]}\PY{p}{,}\PY{n}{theta\PYZus{}0}\PY{n}{[2}\PY{n}{]}\PY{p}{,}\PY{n}{col}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{blue\PYZsq{}}\PY{p}{,}\PY{n}{lwd} \PY{o}{=} \PY{l+m}{3}\PY{p}{)}
+\PY{n+nf}{points}\PY{p}{(}\PY{n}{thetas}\PY{n}{[}\PY{p}{,}\PY{l+m}{1}\PY{n}{]}\PY{p}{,}\PY{n}{thetas}\PY{n}{[}\PY{p}{,}\PY{l+m}{2}\PY{n}{]}\PY{p}{,}\PY{n}{col}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{green\PYZsq{}}\PY{p}{,}\PY{n}{type}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{l\PYZsq{}}\PY{p}{)}
+\PY{n+nf}{points}\PY{p}{(}\PY{n}{thetas}\PY{n}{[iter}\PY{p}{,}\PY{l+m}{1}\PY{n}{]}\PY{p}{,}\PY{n}{thetas}\PY{n}{[iter}\PY{p}{,}\PY{l+m}{2}\PY{n}{]}\PY{p}{,}\PY{n}{col}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{red\PYZsq{}}\PY{p}{,}\PY{n}{lwd} \PY{o}{=} \PY{l+m}{3}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}

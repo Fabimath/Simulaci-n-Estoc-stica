@@ -1,0 +1,42 @@
+\subsection*{Solución Problema 2:}
+Generamos un código en R para aplicar el algoritmo:
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{Xt} \PY{o}{=} \PY{n+nf}{rbind}\PY{p}{(}\PY{n+nf}{c}\PY{p}{(}\PY{l+m}{1.1}\PY{p}{,}\PY{l+m}{1.3}\PY{p}{)}\PY{p}{)}
+\PY{n}{M}\PY{o}{=}\PY{l+m}{10}\PY{o}{\PYZca{}}\PY{l+m}{5}
+\PY{n}{t}\PY{o}{=}\PY{l+m}{1}
+\PY{n+nf}{while }\PY{p}{(}\PY{n}{t}\PY{o}{\PYZlt{}=}\PY{n}{M}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{z} \PY{o}{=} \PY{n+nf}{rnorm}\PY{p}{(}\PY{l+m}{1}\PY{p}{)}
+    \PY{n}{a} \PY{o}{=} \PY{l+m}{1}\PY{o}{/}\PY{p}{(}\PY{l+m}{1}\PY{o}{+}\PY{n}{Xt}\PY{p}{[}\PY{n}{t}\PY{p}{,}\PY{l+m}{1}\PY{p}{]}\PY{o}{\PYZca{}}\PY{l+m}{2}\PY{p}{)}
+    \PY{n}{yt} \PY{o}{=} \PY{l+m}{4}\PY{o}{*}\PY{n}{a} \PY{o}{+} \PY{n}{z}\PY{o}{*}\PY{n+nf}{sqrt}\PY{p}{(}\PY{n}{a}\PY{p}{)}
+    \PY{n}{b} \PY{o}{=} \PY{l+m}{1}\PY{o}{/}\PY{p}{(}\PY{l+m}{1}\PY{o}{+}\PY{n}{Xt}\PY{p}{[}\PY{n}{t}\PY{p}{,}\PY{l+m}{2}\PY{p}{]}\PY{o}{\PYZca{}}\PY{l+m}{2}\PY{p}{)}
+    \PY{n}{xt} \PY{o}{=} \PY{l+m}{4}\PY{o}{*}\PY{n}{b} \PY{o}{+} \PY{n}{z}\PY{o}{*}\PY{n+nf}{sqrt}\PY{p}{(}\PY{n}{b}\PY{p}{)}
+    \PY{n}{Xt} \PY{o}{=} \PY{n+nf}{rbind}\PY{p}{(}\PY{n}{Xt}\PY{p}{,}\PY{n+nf}{c}\PY{p}{(}\PY{n}{xt}\PY{p}{,}\PY{n}{yt}\PY{p}{)}\PY{p}{)}
+    \PY{n}{t}\PY{o}{=}\PY{n}{t}\PY{l+m}{+1}
+\PY{p}{\PYZcb{}}
+\PY{n+nf}{head}\PY{p}{(}\PY{n}{Xt}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+\vspace*{2mm}
+Cuya salida es una matriz que contiene las simulaciones de la función de densidad deseada.\\
+\\
+\begin{tabular}{ll}
+	 1.10000000 & 1.30000000\\
+	 1.83662456 & 2.19569574\\
+	 0.39294808 & 0.57522689\\
+	 3.51801876 & 4.01526220\\
+	 0.05119336 & 0.09264572\\
+	 3.28459306 & 3.30615516\\
+\end{tabular}\\
+\\
+Note que el promedio de las primeras coordenadas es:
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nf}{mean}\PY{p}{(}\PY{n}{Xt}\PY{p}{[}\PY{p}{,}\PY{l+m}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+\end{tcolorbox}
+\vspace*{2mm}
+\textbf{Promedio primeras coordenadas:}    1.8617038766393\\
+\\
+Que es cercano a la esperanza de teórica de las primeras coordenadas.
